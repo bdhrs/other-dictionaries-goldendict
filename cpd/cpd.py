@@ -2,6 +2,14 @@ import pandas as pd
 
 df = pd.read_json("/home/bhikkhu/Bodhirasa/Dropbox/dpd/other dictionaries/cpd/en-critical.json")
 
+# replacements
+print("regex find and replace")
+df.replace("I", "l", inplace=True, regex=True)
+df.replace("<br\\/>", "", inplace=True, regex=True)
+df.replace("rh", "ṁ", inplace=True, regex=True)
+df.replace("ç", "ś", inplace=True, regex=True)
+
+
 df.drop(labels=2, inplace=True, axis=1)
 
 df.insert(2, "definition_plain", "")
@@ -34,9 +42,9 @@ words = list(map(item_to_word, data_read))
 
 ifo = ifo_from_opts(
     {
-        "bookname": "CPD",
+        "bookname": "Critical Pāli Dictionary",
         "author": "V. Trenckner et al.",
-        "description": "Critical Pāli Dictionary",
+        "description": "Critical Pāli Dictionary. encoded by Bodhirasa",
         "website": "https://cpd.uni-koeln.de",
     }
 )
