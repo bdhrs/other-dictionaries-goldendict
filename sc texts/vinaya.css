@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+	<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<title>Vinaya translated by Bhikkhu Brahmali</title>
+		<style>
+			p.pali{
+				color:black;
+				margin: 0px;
+				text-transform: lowercase;
+			}
+			p.english {
+				color: gray;
+				padding-bottom: 10px;
+				margin: 0px;
+			}
+		</style>
+	</head>
