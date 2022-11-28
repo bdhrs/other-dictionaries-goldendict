@@ -1,6 +1,6 @@
 import pandas as pd
 
-df = pd.read_csv("/home/bhikkhu/Bodhirasa/Dropbox/dpd/other dictionaries/peu/peu 22-01-22", sep = "\t", header=None)
+df = pd.read_csv("/home/bhikkhu/Bodhirasa/Dropbox/dpd/other dictionaries/peu/peu 22-09-05", sep = "\t", header=None)
 df.fillna("", inplace=True)
 
 df.insert(2, "definition_plain", "")
@@ -35,7 +35,7 @@ ifo = ifo_from_opts(
     {
         "bookname": "Pāḷi Myanmar Abhidhan",
         "author": "Pāḷi Myanmar Abhidhan",
-        "description": "Pāḷi Myanmar Abhidhan, translated into English. Version 2022-01-22.",
+        "description": "Pāḷi Myanmar Abhidhan, translated into English. Version 22-09-05.",
         "website": "https://github.com/bksubhuti/Tipitaka-Pali-Projector",
     }
 )
