@@ -16,6 +16,7 @@ counter=0
 with open("whitney.css", "r") as c:
 	css = c.read()
 
+html_file = open ("output/whitney.html", "w")
 
 for filename in os.listdir("xml"):
 
@@ -27,15 +28,33 @@ for filename in os.listdir("xml"):
 			html += str(soup.h2)
 			root = re.sub("<h2>(.+?)(<| |\\().+", "\\1", str(root))
 			root_clean = re.sub("√", "", root)
-			root_clean = re.sub("\d", "", root_clean)
+			# root_clean = re.sub("\d", "", root_clean)
 			try:
 				for child in soup.h2.next_siblings:
-					html += str(child)
-				html += "<br><br>"
+					if "<a" in str(child):
+						child = str(child)
+						child = re.sub("""<a href.+?">""", "", child)
+						child = re.sub("""</a>""", "", child)
+						child = re.sub("""<b>""", "<b>√", child)
+						html += child
+					else:
+						html += str(child)
 			except:
 				print(f"{filename} has no <h2> ")
 			html += "</body></html>"
+			
+			# fixes
+			html = html.replace("<i>", "<whi>")
+			html = html.replace("</i>", "</whi>")
+			html = html.replace("<b>", "<whb>")
+			html = html.replace("</b>", "</whb>")
+			html = html.replace("ç", "ś")
+			html = html.replace("Ç", "Ś")
+
 			whitney_dict[root] = {"definition_html": html, "definition_plain": "", "synonyms":[root_clean]}
+			html_file.write(html)
+
+html_file.close()
 
 whitney_df = pd.DataFrame.from_dict(whitney_dict, orient='index')
 whitney_df.reset_index(inplace=True)
