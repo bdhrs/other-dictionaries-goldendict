@@ -1,3 +1,9 @@
-output/
 ncped/differences.csv
 .gitignore
+cpd/output
+output/cpd.json
+output/peu.json
+sc texts/output/
+whitney/output/whitney.csv
+whitney/output/whitney.html
+whitney/output/whitney.json
