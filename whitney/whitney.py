@@ -62,7 +62,7 @@ whitney_df.rename({"index": "word"}, axis='columns', inplace=True)
 whitney_df.to_csv("output/whitney.csv", sep="\t", index=None)
 whitney_df.to_json("output/whitney.json", force_ascii=False, orient="records", indent=5)
 
-zip_path = Path("./output/whitney.zip")
+zip_path = Path("../output/whitney.zip")
 
 with open("output/whitney.json", "r") as gd_data:
     data_read = json.load(gd_data)
